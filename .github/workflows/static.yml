@@ -40,6 +40,12 @@ jobs:
             echo "enabled=true" >> "$GITHUB_OUTPUT"
           else
             echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::GitHub Pages is not enabled; deployment steps will be skipped. Enable Pages in repository Settings > Pages to publish this site."
+            {
+              echo "## GitHub Pages deployment skipped"
+              echo
+              echo "GitHub Pages is not enabled for this repository. Enable it in Settings > Pages to publish this site."
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Setup Pages
         if: steps.pages.outputs.enabled == 'true'
