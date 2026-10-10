@@ -45,10 +45,6 @@ jobs:
         if: steps.pages.outputs.enabled == 'true'
         uses: actions/configure-pages@v5
         with:
-          # Automatically create the GitHub Pages site for the repository
-          # if it does not exist yet, so first-time deployments succeed.
-          # If the token lacks permission to enable Pages, enable it
-          # manually: Settings > Pages > Source > "GitHub Actions".
           enablement: true
       - name: Upload artifact
         if: steps.pages.outputs.enabled == 'true'
